@@ -1,0 +1,30 @@
+if fireUp and keyboard_check(keyUp)
+    {
+        draw_sprite_ext(sTrail, -1, x + lengthdir_x(-scale * 3, image_angle), y + lengthdir_y(-scale * 3, image_angle), scale, scale, image_angle, c_white, 1)
+    }
+    if fireDown and keyboard_check(keyDown)
+    {
+        draw_sprite_ext(sTrail, -1, x + lengthdir_x(scale * 4, image_angle), y + lengthdir_y(scale * 4, image_angle), -scale, scale, image_angle, c_white, 1)
+    }
+    if fireLeft and keyboard_check(keyLeft)
+    {
+		if !inverseFire
+		{
+			draw_sprite_ext(sTrail, -1, x + lengthdir_x(scale * 4, image_angle + 270), y + lengthdir_y(scale * 4, image_angle + 270), scale, scale, image_angle + 90, c_white, 1)
+		}
+		else
+		{
+			draw_sprite_ext(sTrail, -1, x + lengthdir_x(-scale * 3, image_angle + 270), y + lengthdir_y(-scale * 3, image_angle + 270), -scale, scale, image_angle + 90, c_white, 1)
+		}
+    }
+    if fireRight and keyboard_check(keyRight)
+    {
+        if !inverseFire
+		{
+			draw_sprite_ext(sTrail, -1, x + lengthdir_x(-scale * 3, image_angle + 270), y + lengthdir_y(-scale * 3, image_angle + 270), -scale, scale, image_angle + 90, c_white, 1)
+		}
+		else
+		{
+			draw_sprite_ext(sTrail, -1, x + lengthdir_x(scale * 4, image_angle + 270), y + lengthdir_y(scale * 4, image_angle + 270), scale, scale, image_angle + 90, c_white, 1)
+		}
+    }

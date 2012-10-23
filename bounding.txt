@@ -1,0 +1,28 @@
+if !boundSet
+{
+    for(i = 0; i < partsCount; i += 1)
+    {
+        part = partsList[i, 0]
+        if part.x < lowestX
+        {
+            lowestX = part.x
+        }
+        if part.y < lowestY
+        {
+            lowestY = part.y
+        }   
+        if part.x > highestX
+        {
+            highestX = part.x
+        }
+        if part.y > highestY
+        {
+            highestY = part.y
+        }      
+    }
+    lowestX = x - lowestX
+    lowestY = y - lowestY
+    highestX = x - highestX
+    highestY = y - highestY
+    boundSet = true
+}

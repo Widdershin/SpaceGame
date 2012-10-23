@@ -1,0 +1,46 @@
+fillStack = ds_stack_create()
+T = 32
+freeSpace = true
+currentTile = instance_find(oTile, 0)
+message_position(-1, 15)
+
+addDirection(0, 1, 0) // right
+addDirection(1, 0, 1)  // down
+addDirection(2, -1, 0) // left 
+addDirection(3, 0, -1) // up
+
+directions[0, 0] = 1 // right
+directions[0, 1] = 0
+
+while(freeSpace)
+{
+	show_message(ds_stack_size(fillStack))		
+	currentTile.filled = true
+	screen_redraw()
+	
+	cont = false
+	for (i = 0; i < 4; i += 1)
+	{
+		tile = instance_position(currentTile.x + T * directions[i, 0], currentTile.y + T * directions[i, 1], oTile)
+		if tile
+		{
+			if !tile.filled
+			{
+				currentTile = tile
+				ds_stack_push(fillStack, currentTile)
+				cont = true
+				break
+			}
+		}
+	}
+	if cont
+		continue
+	
+	currentTile = ds_stack_pop(fillStack)
+	show_message("Popped")
+	if ds_stack_empty(fillStack)
+	{
+		freeSpace = false
+	}
+	
+}

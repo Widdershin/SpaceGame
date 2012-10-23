@@ -1,0 +1,1 @@
+draw_rectangle(x - lowestX, y - lowestY, x - highestX + scale, y - highestY + scale, 1)
